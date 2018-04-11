@@ -9,9 +9,9 @@ Time spent: **X** hours spent in total
 The following **required** user stories are complete:
 
 - [ ] User can scan barcode of any product using camera
-- [ ] User sees..
-- [ ] User can ..
-- [ ]
+- [ ] User sees identification of the exact product scanned
+- [ ] User can view reviews of the product 
+- [ ] 
 - [ ]
 - [ ]
 - [ ]
