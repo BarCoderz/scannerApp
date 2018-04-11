@@ -8,7 +8,7 @@ Time spent: **X** hours spent in total
 
 The following **required** user stories are complete:
 
-- [ ] User can..
+- [ ] User can scan barcode of any product using camera
 - [ ] User sees..
 - [ ] User can ..
 - [ ]
