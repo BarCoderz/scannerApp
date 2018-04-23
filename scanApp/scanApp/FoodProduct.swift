@@ -15,18 +15,27 @@ class FoodProduct {
     var ingredients: [String]?  //ingredients_ids_debug / ingredients_text_debug
     var labels: String          // "labels"
     var allergens: String       //'allergens'
+    var completion: Bool        //
     
     init(dictionary: [String: Any]) {
         productName = dictionary["product_name"] as? String ?? "No Product Name"
         code = dictionary["code"] as! String
         ingredients = dictionary["ingredients_ids_debug"] as? [String]
         
-        let imageString = dictionary["image_url"] as! String
+        let imageString = dictionary["image_url"] as? String ?? ""
         image_url = URL(string: imageString)
         
         labels = dictionary["labels"] as? String ?? ""
         allergens = dictionary["allergens"] as? String ?? ""
         
+        let completeStatus = dictionary["states_hierarchy"] as? [String]
+        let newString = completeStatus![1]
+        
+        if ((newString.range(of: "en:to-be-completed")) != nil) {
+            completion = false
+        } else {
+            completion = true
+        }
     }
     
     class func newProduct(dictionary: [String: Any]) -> FoodProduct {

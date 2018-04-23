@@ -43,10 +43,16 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
         APIManager().getProduct(barcode: code) { (food: FoodProduct?, error: Error?) in
             if let food = food {
                 self.newProduct = food
-                print(food.productName)
+                if (food.completion) {
+                    print(food.productName)
+                    
+                    // if product found, go to product view
+                    self.performSegue(withIdentifier: "toProduct", sender: nil)
+                } else {
+                    print("no product found")
+                    controller.resetWithError()
+                }
                 
-                // if product found, go to product view
-                self.performSegue(withIdentifier: "toProduct", sender: nil)
             }
         }
         
@@ -56,6 +62,7 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
                 self.newProduct = nil
             } else {
                 controller.resetWithError()
+                self.newProduct = nil
             }
             
         }
