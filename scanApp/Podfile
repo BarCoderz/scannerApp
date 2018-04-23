@@ -7,5 +7,7 @@ target 'scanApp' do
 
   # Pods for scanApp
   pod 'BarcodeScanner'
+  pod 'Alamofire', '~> 4.4'
+  pod 'AlamofireImage'
 
 end
