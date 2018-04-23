@@ -8,6 +8,7 @@
 
 import UIKit
 import BarcodeScanner
+
 class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, BarcodeScannerErrorDelegate, BarcodeScannerDismissalDelegate {
     
     var newProduct: FoodProduct!
@@ -43,6 +44,8 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
             if let food = food {
                 self.newProduct = food
                 print(food.productName)
+                // if product found, go to product view
+                self.performSegue(withIdentifier: "toProduct", sender: nil)
             }
         }
         
@@ -55,6 +58,11 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
             }
             
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as! ProductViewController
+        destinationViewController.product = newProduct
     }
     
     

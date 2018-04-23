@@ -43,12 +43,12 @@
         <!--Product View Controller-->
         <scene sceneID="mc9-Bu-u1R">
             <objects>
-                <viewController id="53D-Ga-uDr" customClass="ProductViewController" customModule="scanApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="productView" id="53D-Ga-uDr" customClass="ProductViewController" customModule="scanApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1hn-8X-S1t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hcj-nC-c6l">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hcj-nC-c6l">
                                 <rect key="frame" x="0.0" y="64" width="173" height="166"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
