@@ -1,6 +1,6 @@
 # scannerApp
 
-**GradeA** is a barcode scanning application that displays product reviews and purchase options using a product code.
+**UVegan?** is a barcode scanning application that displays product reviews and purchase options using a product code.
 
 Time spent: **X** hours spent in total
 
@@ -9,10 +9,10 @@ Time spent: **X** hours spent in total
 The following **required** user stories are complete:
 
 - [ ] User sees app icon in home screen and styled launch screen
-- [ ] User can search for product by barcode using phone's camera
-- [ ] User can see the product name and photo as a result of the search by barcode.
+- [x] User can search for product by barcode using phone's camera
+- [x] User can see the product name and photo as a result of the search by barcode.
 - [ ] User can tap a product cell to view details, including product name and ingredients
-- [ ] User sees a loading state while waiting for the products to load
+- [x] User sees a loading state while waiting for the products to load
 
 The following **optional** user stories are complete:
 - [ ] Table rows for search results should be dynamic height according to the content height.

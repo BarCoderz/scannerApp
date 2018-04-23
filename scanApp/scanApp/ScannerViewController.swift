@@ -44,12 +44,13 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
             if let food = food {
                 self.newProduct = food
                 print(food.productName)
+                
                 // if product found, go to product view
                 self.performSegue(withIdentifier: "toProduct", sender: nil)
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             if (self.newProduct != nil) {
                 controller.reset()
                 self.newProduct = nil
