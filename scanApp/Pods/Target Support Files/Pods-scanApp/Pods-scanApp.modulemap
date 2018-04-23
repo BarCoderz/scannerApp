@@ -1,0 +1,6 @@
+framework module Pods_scanApp {
+  umbrella header "Pods-scanApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
