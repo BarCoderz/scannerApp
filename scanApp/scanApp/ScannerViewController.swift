@@ -18,6 +18,13 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
         // Do any additional setup after loading the view.
     }
     
+
+    @IBAction func toPresentScan(_ sender: Any, forEvent event: UIEvent) {
+        let viewController = makeBarcodeScannerViewController()
+        viewController.title = "Barcode Scanner"
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
         print("Barcode Data: \(code)")
         print("Symbology Type: \(type)")
@@ -26,6 +33,7 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
             controller.resetWithError()
         }
     }
+    
     
     func scanner(_ controller: BarcodeScannerViewController, didReceiveError error: Error) {
         print(error)
