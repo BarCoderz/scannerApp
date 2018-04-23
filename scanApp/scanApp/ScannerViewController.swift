@@ -10,6 +10,8 @@ import UIKit
 import BarcodeScanner
 class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, BarcodeScannerErrorDelegate, BarcodeScannerDismissalDelegate {
     
+    var newProduct: FoodProduct!
+    
     @IBOutlet var startScanBtn: UIButton!
     
     override func viewDidLoad() {
@@ -37,8 +39,21 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
         print("Barcode Data: \(code)")
         print("Symbology Type: \(type)")
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            controller.resetWithError()
+        APIManager().getProduct(barcode: code) { (food: FoodProduct?, error: Error?) in
+            if let food = food {
+                self.newProduct = food
+                print(food.productName)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            if (self.newProduct != nil) {
+                controller.reset()
+                self.newProduct = nil
+            } else {
+                controller.resetWithError()
+            }
+            
         }
     }
     
@@ -56,7 +71,7 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+}
 
     /*
     // MARK: - Navigation
@@ -68,4 +83,3 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
     }
     */
 
-}
