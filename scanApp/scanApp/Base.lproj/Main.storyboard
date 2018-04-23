@@ -33,11 +33,44 @@
                     <navigationItem key="navigationItem" id="uHr-1X-2UB"/>
                     <connections>
                         <outlet property="startScanBtn" destination="eYz-le-3Nq" id="qiM-1V-rnc"/>
+                        <segue destination="53D-Ga-uDr" kind="show" identifier="toProduct" id="Fit-aL-ANz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="564" y="9.4452773613193415"/>
+        </scene>
+        <!--Product View Controller-->
+        <scene sceneID="mc9-Bu-u1R">
+            <objects>
+                <viewController id="53D-Ga-uDr" customClass="ProductViewController" customModule="scanApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1hn-8X-S1t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hcj-nC-c6l">
+                                <rect key="frame" x="0.0" y="64" width="173" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbU-sM-dys">
+                                <rect key="frame" x="181" y="125" width="178" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="FVk-Vt-o88"/>
+                    </view>
+                    <connections>
+                        <outlet property="ProductImageView" destination="Hcj-nC-c6l" id="WqL-CI-SbI"/>
+                        <outlet property="ProductNameLabel" destination="IbU-sM-dys" id="5F8-qX-Ohj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rhz-1w-xix" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1424.8" y="11.244377811094454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z8r-IQ-R9g">
