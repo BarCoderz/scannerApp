@@ -10,38 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Barcode View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BarcodeViewController" customModule="scanApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoG-rH-fwe">
-                                <rect key="frame" x="84" y="162" width="73" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Push"/>
-                                <connections>
-                                    <action selector="hitPush:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6CE-iA-MAw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-dP-RCX">
-                                <rect key="frame" x="75" y="276" width="119" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Present"/>
-                                <connections>
-                                    <action selector="hitPresent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="utS-zj-3en"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="presentBtn" destination="DHn-dP-RCX" id="vxH-lo-rFt"/>
-                        <outlet property="pustBtn" destination="VoG-rH-fwe" id="dht-eq-aRX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

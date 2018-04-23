@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0FAE384D207BF90000315483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE384C207BF90000315483 /* AppDelegate.swift */; };
-		0FAE384F207BF90000315483 /* BarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE384E207BF90000315483 /* BarcodeViewController.swift */; };
 		0FAE3852207BF90000315483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FAE3850207BF90000315483 /* Main.storyboard */; };
 		0FAE3854207BF90000315483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FAE3853207BF90000315483 /* Assets.xcassets */; };
 		0FAE3857207BF90000315483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FAE3855207BF90000315483 /* LaunchScreen.storyboard */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		0FAE3849207BF90000315483 /* scanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAE384C207BF90000315483 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0FAE384E207BF90000315483 /* BarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeViewController.swift; sourceTree = "<group>"; };
 		0FAE3851207BF90000315483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FAE3853207BF90000315483 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FAE3856207BF90000315483 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				0FAE384C207BF90000315483 /* AppDelegate.swift */,
-				0FAE384E207BF90000315483 /* BarcodeViewController.swift */,
 				0FAE3850207BF90000315483 /* Main.storyboard */,
 				0FAE3853207BF90000315483 /* Assets.xcassets */,
 				0FAE3855207BF90000315483 /* LaunchScreen.storyboard */,
@@ -217,7 +214,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FAE384F207BF90000315483 /* BarcodeViewController.swift in Sources */,
 				0FAE384D207BF90000315483 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
