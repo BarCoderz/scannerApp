@@ -25,6 +25,14 @@ class ScannerViewController: UIViewController, BarcodeScannerCodeDelegate, Barco
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    private func makeBarcodeScannerViewController() -> BarcodeScannerViewController {
+        let viewController = BarcodeScannerViewController()
+        viewController.codeDelegate = self
+        viewController.errorDelegate = self
+        viewController.dismissalDelegate = self
+        return viewController
+    }
+    
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
         print("Barcode Data: \(code)")
         print("Symbology Type: \(type)")
