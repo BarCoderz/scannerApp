@@ -11,8 +11,8 @@ class FoodProduct {
     
     var productName: String     // product_name
     var code: String            // code
+    var ingredients: [String]?  // ingredients_ids_debug / ingredients_text_debug
     var image_url: URL!         // "image_url"
-    var ingredients: [String]?  //ingredients_ids_debug / ingredients_text_debug
     var labels: String          // "labels"
     var allergens: String       //'allergens'
     var completion: Bool        //
@@ -28,13 +28,16 @@ class FoodProduct {
         labels = dictionary["labels"] as? String ?? ""
         allergens = dictionary["allergens"] as? String ?? ""
         
-        let completeStatus = dictionary["states_hierarchy"] as? [String]
-        let newString = completeStatus![1]
+        let completeStatus = dictionary["states_hierarchy"] as? [String] ?? []
+        completion = false
         
-        if ((newString.range(of: "en:to-be-completed")) != nil) {
-            completion = false
-        } else {
-            completion = true
+        for newString in completeStatus {
+            if ((newString.range(of: "en:to-be-completed")) != nil) {
+                completion = false
+                break
+            } else {
+                completion = true
+            }
         }
     }
     
