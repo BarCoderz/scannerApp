@@ -13,8 +13,10 @@ class ProductViewController: UIViewController {
 
     @IBOutlet weak var ProductImageView: UIImageView!
     @IBOutlet weak var ProductNameLabel: UILabel!
-    var product: FoodProduct!
     var imageURL: URL!
+    
+    var product: FoodProduct!
+    var preferences: Preference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,7 @@ class ProductViewController: UIViewController {
         if imageURL != nil{
             ProductImageView .af_setImage(withURL: imageURL)
         }
+        
         // Do any additional setup after loading the view.
     }
 

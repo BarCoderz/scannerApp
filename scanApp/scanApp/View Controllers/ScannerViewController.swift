@@ -107,7 +107,6 @@ class ScannerViewController: UIViewController,
     
     
     @IBAction func toPresentScan(_ sender: Any, forEvent event: UIEvent) {
-
         let viewController = makeBarcodeScannerViewController()
         viewController.title = "Barcode Scanner"
         navigationController?.pushViewController(viewController, animated: true)
@@ -154,6 +153,7 @@ class ScannerViewController: UIViewController,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationViewController = segue.destination as! ProductViewController
         destinationViewController.product = newProduct
+        destinationViewController.preferences = profile
     }
     
     
