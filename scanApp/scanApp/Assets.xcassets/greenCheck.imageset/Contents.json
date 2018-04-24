@@ -1,0 +1,87 @@
+{
+  "images" : [
+    {
+      "idiom" : "iphone",
+      "filename" : "greenCheck-1024.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "greenCheck-40@2x-1.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "greenCheck-40@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-60@2x.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-60@3x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "greenCheck-29@2x.png",
+      "unassigned" : true,
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "greenCheck-29@3x.png",
+      "unassigned" : true,
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-29.png",
+      "unassigned" : true,
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-40.png",
+      "unassigned" : true,
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-76.png",
+      "unassigned" : true,
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-29@2x.png",
+      "unassigned" : true,
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-40@2x.png",
+      "unassigned" : true,
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-76@2x.png",
+      "unassigned" : true,
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "greenCheck-83.5@2x.png",
+      "unassigned" : true,
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

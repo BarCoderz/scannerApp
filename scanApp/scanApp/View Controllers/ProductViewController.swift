@@ -15,48 +15,73 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var ProductNameLabel: UILabel!
     var imageURL: URL!
     
+    @IBOutlet weak var veganLabel: UILabel!
+    @IBOutlet weak var veganCheck: UIImageView!
+    
+    @IBOutlet weak var veggieLabel: UILabel!
+    @IBOutlet weak var veggieCheckbox: UIImageView!
+    
+    @IBOutlet weak var allergensLabel: UILabel!
+    @IBOutlet weak var allergensCheck: UIImageView!
+    
     var product: FoodProduct!
     var preferences: Preference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        veganLabel.isHidden = true
+        veganCheck.isHidden = true
+        veggieLabel.isHidden = true
+        veggieCheckbox.isHidden = true
+        allergensLabel.isHidden = true
+        allergensCheck.isHidden = true
+        
         ProductNameLabel.text = product.productName
         imageURL = product.image_url
 
         if imageURL != nil{
             ProductImageView .af_setImage(withURL: imageURL)
         }
+        
+        if preferences.uVegan {
+            setVeganAlert()
+        }
+        
+        if preferences.uVegetarian {
+           setVeggieAlert()
+        }
+        
+        if preferences.urAllergens != nil {
+           setAllergenAlert()
+        }
     }
     
     //  Checks if product is considered Vegan
     func isVegan() -> Bool {
-        for item in product.labels {
-            if ((newString.range(of: "vegan")) != nil) {
+       /* for item in product.labels {
+            if ((item.range(of: "vegan")) != nil) {
                 return true
             } else {
-                // check ingredients vs. non-vegan array
+                // check ingredients vs. non-vegan array                                                                                                                                                             
                 // if match made, return false
                 // else return true
-            }
-        }
-        
+         }
+        } */ // ISSUE: FoodProduct.label, is one long string needs to be parsed into array
         return false
     }
     
-    // Checks if product is considered Vegetarian
+    // Checks if product is considered Vegetarian - NOT COMPLETE
     func isVegetarian() -> Bool  {
         if (isVegan()) {
             return true
         }
         
-        for item in product.labels {
-            if ((newString.range(of: "vegan")) != nil) {
-                return true
-            } else {
-                // check ingredients vs. non-vegtarian array
-                // if match made, return false
-                // else return true
-            }
+        if ((product.labels.range(of: "vegetarian")) != nil) {
+            return true
+        } else {
+            // check ingredients vs. non-vegtarian array
+            // if match made, return false
+            // else return true
         }
         return false
     }
@@ -64,13 +89,43 @@ class ProductViewController: UIViewController {
     // Checks if product is edible considering Users' allergans
     func isEdible() -> Bool {
         for allergen in preferences.urAllergens {
-            for ingredient in product.ingredients {
+            for ingredient in product.ingredients! {
                 if ((ingredient.range(of: allergen)) != nil) {
                     return false
                 }
             }
         }
         return true
+    }
+    
+    func setVeganAlert() {
+        veganLabel.isHidden = false
+        veganCheck.isHidden = false
+        
+        if !isVegan() {
+            veganLabel.textColor = UIColor.red
+            veganCheck.image = #imageLiteral(resourceName: "redX")
+        }
+    }
+    
+    func setVeggieAlert() {
+        veggieLabel.isHidden = false
+        veggieCheckbox.isHidden = false
+        
+        if !isVegetarian() {
+            veggieLabel.textColor = UIColor.red
+            veggieCheckbox.image = #imageLiteral(resourceName: "redX")
+        }
+    }
+    
+    func setAllergenAlert() {
+        allergensLabel.isHidden = false
+        allergensCheck.isHidden = false
+        
+        if !isEdible() {
+            allergensLabel.textColor = UIColor.red
+            allergensCheck.image = #imageLiteral(resourceName: "redX")
+        }
     }
 
     override func didReceiveMemoryWarning() {

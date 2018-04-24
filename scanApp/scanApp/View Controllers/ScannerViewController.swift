@@ -28,8 +28,6 @@ class ScannerViewController: UIViewController,
         tagCollection.delegate = self
         tagCollection.dataSource = self
         profile = Preference()
-        // Do any additional setup after loading the view.
-    
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,7 +70,7 @@ class ScannerViewController: UIViewController,
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.textField.text = self.commonAllergens[row]
-        //self.dropDown.isHidden = true
+        self.dropDown.isHidden = true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

@@ -16,8 +16,6 @@ class FoodProduct {
     var labels: String          // "labels"
     var allergens: String       // 'allergens'
     var completion: Bool        //
-    var isVegan: Bool
-    var isVegetarian: Bool
     
     init(dictionary: [String: Any]) {
         productName = dictionary["product_name"] as? String ?? "No Product Name"
@@ -31,8 +29,10 @@ class FoodProduct {
         allergens = dictionary["allergens"] as? String ?? ""
         
         let completeStatus = dictionary["states_hierarchy"] as? [String] ?? []
-        completion = false
         
+        completion = true   // should start as false
+
+        // ISSUE: neeeds verification
         for newString in completeStatus {
             if ((newString.range(of: "en:to-be-completed")) != nil) {
                 completion = false
