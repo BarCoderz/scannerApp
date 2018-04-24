@@ -14,8 +14,10 @@ class FoodProduct {
     var ingredients: [String]?  // ingredients_ids_debug / ingredients_text_debug
     var image_url: URL!         // "image_url"
     var labels: String          // "labels"
-    var allergens: String       //'allergens'
+    var allergens: String       // 'allergens'
     var completion: Bool        //
+    var isVegan: Bool
+    var isVegetarian: Bool
     
     init(dictionary: [String: Any]) {
         productName = dictionary["product_name"] as? String ?? "No Product Name"
@@ -39,6 +41,7 @@ class FoodProduct {
                 completion = true
             }
         }
+
     }
     
     class func newProduct(dictionary: [String: Any]) -> FoodProduct {
@@ -46,4 +49,5 @@ class FoodProduct {
         item = FoodProduct(dictionary: dictionary)
         return item
     }
+
 }

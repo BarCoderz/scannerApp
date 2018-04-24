@@ -8,13 +8,13 @@
 
 import Foundation
 class Preference {
-    var isVegan: Bool!
-    var isVegetarian: Bool!
-    var allergens: [String]!
+    var uVegan: Bool!
+    var uVegetarian: Bool!
+    var urAllergens: [String]!
     
     init() {
-        isVegan = true
-        isVegetarian = true
-        allergens = []
+        uVegan = true
+        uVegetarian = true
+        urAllergens = []
     }
 }

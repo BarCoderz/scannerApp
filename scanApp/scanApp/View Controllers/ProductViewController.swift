@@ -26,8 +26,51 @@ class ProductViewController: UIViewController {
         if imageURL != nil{
             ProductImageView .af_setImage(withURL: imageURL)
         }
+    }
+    
+    //  Checks if product is considered Vegan
+    func isVegan() -> Bool {
+        for item in product.labels {
+            if ((newString.range(of: "vegan")) != nil) {
+                return true
+            } else {
+                // check ingredients vs. non-vegan array
+                // if match made, return false
+                // else return true
+            }
+        }
         
-        // Do any additional setup after loading the view.
+        return false
+    }
+    
+    // Checks if product is considered Vegetarian
+    func isVegetarian() -> Bool  {
+        if (isVegan()) {
+            return true
+        }
+        
+        for item in product.labels {
+            if ((newString.range(of: "vegan")) != nil) {
+                return true
+            } else {
+                // check ingredients vs. non-vegtarian array
+                // if match made, return false
+                // else return true
+            }
+        }
+        return false
+    }
+    
+    // Checks if product is edible considering Users' allergans
+    func isEdible() -> Bool {
+        for allergen in preferences.urAllergens {
+            for ingredient in product.ingredients {
+                if ((ingredient.range(of: allergen)) != nil) {
+                    return false
+                }
+            }
+        }
+        return true
     }
 
     override func didReceiveMemoryWarning() {

@@ -39,20 +39,20 @@ class ScannerViewController: UIViewController,
     
     @IBAction func veganSwitch(_ sender: UISwitch) {
         if (sender.isOn) {
-            profile.isVegan = true
+            profile.uVegan = true
             print("This session is VEGAN")
         } else {
-            profile.isVegan = false
+            profile.uVegan = false
             print("This session is NOT VEGAN")
         }
     }
     
     @IBAction func vegSwitch(_ sender: UISwitch) {
         if (sender.isOn) {
-            profile.isVegetarian = true
+            profile.uVegetarian = true
             print("This session is VEGETARIAN")
         } else {
-            profile.isVegetarian = false
+            profile.uVegetarian = false
             print("This session is NOT VEGETARIAN")
         }
     }
@@ -96,7 +96,7 @@ class ScannerViewController: UIViewController,
         tagCollection.reloadData()
         
         // add allergens to perfence instance (profile)
-        profile.allergens = self.allergens
+        profile.urAllergens = self.allergens
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
