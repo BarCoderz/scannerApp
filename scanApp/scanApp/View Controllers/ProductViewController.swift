@@ -13,7 +13,7 @@ class ProductViewController: UIViewController {
 
     var product: FoodProduct!
     var preferences: Preference!
-    var nonVegan = ["gelatin", "milk", "yogurt", "cheese", "butter", "eggs", "honey", "bee pollen"]
+    var nonVegan = ["gelatin", "milk", "yogurt", "cheese", "butter", "eggs", "honey", "bee pollen", "lactose"]
     var Vegetarian = ["chicken", "pork", "beef", "fish", "duck", "shrimp", "veal", "meat"]
     @IBOutlet weak var ProductImageView: UIImageView!
     @IBOutlet weak var ProductNameLabel: UILabel!
@@ -69,9 +69,11 @@ class ProductViewController: UIViewController {
             }
             
             return true // no matches found
+            
+        } else {
+            return false // not Vegetarian, definitely not Vegan
         }
         
-        return false // not Vegetarian, definitely not 
     }
     
     // Checks if product is considered Vegetarian - NOT COMPLETE
