@@ -13,8 +13,8 @@ class Preference {
     var allergens: [String]!
     
     init() {
-        isVegan = false
-        isVegetarian = false
+        isVegan = true
+        isVegetarian = true
         allergens = []
     }
 }

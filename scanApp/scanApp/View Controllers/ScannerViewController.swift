@@ -38,13 +38,23 @@ class ScannerViewController: UIViewController,
     }
     
     @IBAction func veganSwitch(_ sender: UISwitch) {
-        profile.isVegan = true
-        print("This session is VEGAN")
+        if (sender.isOn) {
+            profile.isVegan = true
+            print("This session is VEGAN")
+        } else {
+            profile.isVegan = false
+            print("This session is NOT VEGAN")
+        }
     }
     
     @IBAction func vegSwitch(_ sender: UISwitch) {
-        profile.isVegetarian = true
-        print("This session is VEGETARIAN")
+        if (sender.isOn) {
+            profile.isVegetarian = true
+            print("This session is VEGETARIAN")
+        } else {
+            profile.isVegetarian = false
+            print("This session is NOT VEGETARIAN")
+        }
     }
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
