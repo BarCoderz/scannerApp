@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "cityscape.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "uVeganLogo.png",
       "scale" : "2x"
     },
     {
