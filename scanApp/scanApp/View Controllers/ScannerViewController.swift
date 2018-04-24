@@ -19,19 +19,32 @@ class ScannerViewController: UIViewController,
     @IBOutlet weak var submitBtn: UIButton!
     
     var commonAllergens = ["Peanuts", "Bananas", "Soy", "Chocolate", "Wheat"]
-    
-    var tags: [String] = []
+    var allergens: [String] = []
+    var profile: Preference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tagCollection.delegate = self
         tagCollection.dataSource = self
+        profile = Preference()
         // Do any additional setup after loading the view.
+    
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func veganSwitch(_ sender: UISwitch) {
+        profile.isVegan = true
+        print("This session is VEGAN")
+    }
+    
+    @IBAction func vegSwitch(_ sender: UISwitch) {
+        profile.isVegetarian = true
+        print("This session is VEGETARIAN")
     }
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
@@ -66,19 +79,23 @@ class ScannerViewController: UIViewController,
     
     func addTags() {
         let tag = textField.text
-        tags.append(tag!)
+        allergens.append(tag!)
         textField.text = nil
-        print(tags.count)
+        print(allergens.count)
+        
         tagCollection.reloadData()
+        
+        // add allergens to perfence instance (profile)
+        profile.allergens = self.allergens
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tags.count
+        return allergens.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = tagCollection.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as! TagCell
-        cell.tagLabel.text = tags[indexPath.row]
+        cell.tagLabel.text = allergens[indexPath.row]
         
         return cell
     }
@@ -88,7 +105,9 @@ class ScannerViewController: UIViewController,
     @IBOutlet var startScanBtn: UIButton!
     var newProduct: FoodProduct!
     
+    
     @IBAction func toPresentScan(_ sender: Any, forEvent event: UIEvent) {
+
         let viewController = makeBarcodeScannerViewController()
         viewController.title = "Barcode Scanner"
         navigationController?.pushViewController(viewController, animated: true)
@@ -129,7 +148,6 @@ class ScannerViewController: UIViewController,
                 controller.resetWithError()
                 self.newProduct = nil
             }
-            
         }
     }
     
@@ -147,8 +165,6 @@ class ScannerViewController: UIViewController,
         controller.dismiss(animated: true, completion: nil)
     }
     
-
-
 }
 
     /*
