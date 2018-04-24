@@ -106,7 +106,7 @@ class ScannerViewController: UIViewController,
         return cell
     }
     
-// Scan function
+// Scan Functions
     
     @IBOutlet var startScanBtn: UIButton!
     var newProduct: FoodProduct!

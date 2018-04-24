@@ -34,8 +34,7 @@ class FoodProduct {
         let completeStatus = dictionary["states_hierarchy"] as? [String] ?? []
         
         completion = true   // should start as false
-
-        // ISSUE: neeeds verification
+        // ISSUE: neeeds verification. MY HAVE ERRORS
         for newString in completeStatus {
             if ((newString.range(of: "en:to-be-completed")) != nil) {
                 completion = false

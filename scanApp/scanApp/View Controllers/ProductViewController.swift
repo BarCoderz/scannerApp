@@ -13,7 +13,8 @@ class ProductViewController: UIViewController {
 
     var product: FoodProduct!
     var preferences: Preference!
-    
+    var nonVegan = ["gelatin", "milk", "yogurt", "cheese", "butter", "eggs", "honey", "bee pollen"]
+    var Vegetarian = ["chicken", "pork", "beef", "fish", "duck", "shrimp", "veal", "meat"]
     @IBOutlet weak var ProductImageView: UIImageView!
     @IBOutlet weak var ProductNameLabel: UILabel!
     var imageURL: URL!
@@ -53,39 +54,47 @@ class ProductViewController: UIViewController {
     
     //  Checks if product is considered Vegan - NOT COMPLETE
     func isVegan() -> Bool {
-        for item in product.labels! {
-            if ((item.range(of: "vegan")) != nil) {
-                return true
-            } else {
-                // check ingredients vs. non-vegan array                                                                                                                                                             
-                // if match made, return false
-                // else return true
+        if isVegetarian() {
+            for item in product.labels! {
+                if ((item.range(of: "vegan")) != nil) {
+                    return true
+                }
             }
+            
+            // check ingredients vs. non-vegan array
+            for item in nonVegan {
+                if (product.ingredients?.contains(item))! {
+                    return false
+                }
+            }
+            
+            return true // no matches found
         }
         
-        return false
+        return false // not Vegetarian, definitely not 
     }
     
     // Checks if product is considered Vegetarian - NOT COMPLETE
     func isVegetarian() -> Bool  {
-        if (isVegan()) {
-            return true
-        }
-        
         for item in product.labels! {
             if ((item.range(of: "vegetarian")) != nil) {
                 return true
-            } else {
-                // check ingredients vs. non-vegan array
-                // if match made, return false
-                // else return true
             }
         }
-        return false
+        
+        // check ingredients vs. vegetarian array
+        for item in Vegetarian {
+            if (product.ingredients?.contains(item))! {
+                return false
+            }
+        }
+        
+        return true // no matches found
     }
     
     // Checks if product is edible considering Users' allergans
-    // ISSUE - has to be the exact word used, check strings directly?
+    // ISSUE - has to be the exact word used, check strings directly incase it contains
+    // ex. Restriction = "nuts" , Ingredients= "Soy Nut": goes undetected
     func isEdible() -> Bool {
         for allergen in preferences.urAllergens {
             if (product.ingredients?.contains(allergen.lowercased()))! {
@@ -123,7 +132,7 @@ class ProductViewController: UIViewController {
         allergensCheck.isHidden = false
         
         if !isEdible() {
-            allergensLabel.text = "Allergens Here!"
+            allergensLabel.text = "Your Diet DOESN'T Allow!"
             allergensLabel.textColor = UIColor.red
             allergensCheck.image = #imageLiteral(resourceName: "redX")
         }
