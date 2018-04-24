@@ -89,8 +89,6 @@ class ScannerViewController: UIViewController,
         let tag = textField.text
         allergens.append(tag!)
         textField.text = nil
-        print(allergens.count)
-        
         tagCollection.reloadData()
         
         // add allergens to perfence instance (profile)
