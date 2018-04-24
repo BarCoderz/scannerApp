@@ -13,19 +13,22 @@ class FoodProduct {
     var code: String            // code
     var ingredients: [String]?  // ingredients_ids_debug / ingredients_text_debug
     var image_url: URL!         // "image_url"
-    var labels: String          // "labels"
+    var labels: [String]?       // "labels"
     var allergens: String       // 'allergens'
     var completion: Bool        //
     
     init(dictionary: [String: Any]) {
         productName = dictionary["product_name"] as? String ?? "No Product Name"
         code = dictionary["code"] as! String
+        
+        // ISSUE: Ingredients need to be formated ex. "lactic-acid" -> "lactic acid"
         ingredients = dictionary["ingredients_ids_debug"] as? [String]
         
         let imageString = dictionary["image_url"] as? String ?? ""
         image_url = URL(string: imageString)
         
-        labels = dictionary["labels"] as? String ?? ""
+        labels = dictionary["labels_tags"] as? [String]
+        
         allergens = dictionary["allergens"] as? String ?? ""
         
         let completeStatus = dictionary["states_hierarchy"] as? [String] ?? []
@@ -41,7 +44,6 @@ class FoodProduct {
                 completion = true
             }
         }
-
     }
     
     class func newProduct(dictionary: [String: Any]) -> FoodProduct {

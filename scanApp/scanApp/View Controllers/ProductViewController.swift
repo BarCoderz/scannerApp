@@ -11,6 +11,9 @@ import AlamofireImage
 
 class ProductViewController: UIViewController {
 
+    var product: FoodProduct!
+    var preferences: Preference!
+    
     @IBOutlet weak var ProductImageView: UIImageView!
     @IBOutlet weak var ProductNameLabel: UILabel!
     var imageURL: URL!
@@ -24,8 +27,6 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var allergensLabel: UILabel!
     @IBOutlet weak var allergensCheck: UIImageView!
     
-    var product: FoodProduct!
-    var preferences: Preference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,30 +44,25 @@ class ProductViewController: UIViewController {
             ProductImageView .af_setImage(withURL: imageURL)
         }
         
-        if preferences.uVegan {
-            setVeganAlert()
-        }
+        if preferences.uVegan { setVeganAlert() }
         
-        if preferences.uVegetarian {
-           setVeggieAlert()
-        }
+        if preferences.uVegetarian { setVeggieAlert() }
         
-        if preferences.urAllergens != nil {
-           setAllergenAlert()
-        }
+        if preferences.urAllergens != nil { setAllergenAlert() }
     }
     
-    //  Checks if product is considered Vegan
+    //  Checks if product is considered Vegan - NOT COMPLETE
     func isVegan() -> Bool {
-       /* for item in product.labels {
+        for item in product.labels! {
             if ((item.range(of: "vegan")) != nil) {
                 return true
             } else {
                 // check ingredients vs. non-vegan array                                                                                                                                                             
                 // if match made, return false
                 // else return true
-         }
-        } */ // ISSUE: FoodProduct.label, is one long string needs to be parsed into array
+            }
+        }
+        
         return false
     }
     
@@ -76,33 +72,36 @@ class ProductViewController: UIViewController {
             return true
         }
         
-        if ((product.labels.range(of: "vegetarian")) != nil) {
-            return true
-        } else {
-            // check ingredients vs. non-vegtarian array
-            // if match made, return false
-            // else return true
+        for item in product.labels! {
+            if ((item.range(of: "vegetarian")) != nil) {
+                return true
+            } else {
+                // check ingredients vs. non-vegan array
+                // if match made, return false
+                // else return true
+            }
         }
         return false
     }
     
     // Checks if product is edible considering Users' allergans
+    // ISSUE - has to be the exact word used, check strings directly?
     func isEdible() -> Bool {
         for allergen in preferences.urAllergens {
-            for ingredient in product.ingredients! {
-                if ((ingredient.range(of: allergen)) != nil) {
-                    return false
-                }
+            if (product.ingredients?.contains(allergen.lowercased()))! {
+                return false
             }
         }
         return true
     }
-    
+
+// Label Setters
     func setVeganAlert() {
         veganLabel.isHidden = false
         veganCheck.isHidden = false
         
         if !isVegan() {
+            veganLabel.text = "Vegan"
             veganLabel.textColor = UIColor.red
             veganCheck.image = #imageLiteral(resourceName: "redX")
         }
@@ -113,6 +112,7 @@ class ProductViewController: UIViewController {
         veggieCheckbox.isHidden = false
         
         if !isVegetarian() {
+            veggieLabel.text = "Vegetarian"
             veggieLabel.textColor = UIColor.red
             veggieCheckbox.image = #imageLiteral(resourceName: "redX")
         }
@@ -123,6 +123,7 @@ class ProductViewController: UIViewController {
         allergensCheck.isHidden = false
         
         if !isEdible() {
+            allergensLabel.text = "Allergens Here!"
             allergensLabel.textColor = UIColor.red
             allergensCheck.image = #imageLiteral(resourceName: "redX")
         }
