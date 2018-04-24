@@ -17,8 +17,6 @@ The following **required** user stories are complete:
 
 The following **optional** user stories are complete:
 - [X] Interface should be user friendly and aesthetically pleasing
-- [ ] App can display all ingredients in a table view
-- [ ] User can search ingredients in a search bar
 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
