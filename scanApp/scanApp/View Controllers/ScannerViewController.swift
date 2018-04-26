@@ -91,6 +91,7 @@ class ScannerViewController: UIViewController,
     
     @IBAction func submitTag(_ sender: Any) {
         addTags()
+        dismissKeyboard()
     }
     
     func addTags() {

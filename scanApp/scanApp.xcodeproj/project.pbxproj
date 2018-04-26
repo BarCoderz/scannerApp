@@ -81,10 +81,10 @@
 		0FAE384B207BF90000315483 /* scanApp */ = {
 			isa = PBXGroup;
 			children = (
+				0FAE384C207BF90000315483 /* AppDelegate.swift */,
 				0FEF562B208EA05A00B18AEF /* View Controllers */,
 				0FEF562D208EA08500B18AEF /* Views */,
 				0FEF562C208EA07800B18AEF /* Models */,
-				0FAE384C207BF90000315483 /* AppDelegate.swift */,
 				0FAE3850207BF90000315483 /* Main.storyboard */,
 				0FAE3853207BF90000315483 /* Assets.xcassets */,
 				0FAE3855207BF90000315483 /* LaunchScreen.storyboard */,
